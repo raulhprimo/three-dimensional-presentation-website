@@ -10,3 +10,74 @@ body {
     width: 100vw; /* Largura total da janela */
     height: 100vh; /* Altura total da janela */
 }
+
+/* Estilo da navbar */
+.navbar {
+    position: fixed; /* Muda para fixed para que fique sempre visível */
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    z-index: 10; /* Garante que a navbar fique acima do conteúdo */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+/* Efeito de flutuação */
+.objeto-a-flutuar {
+    animation: float 5.1s ease-in-out infinite; /* Aplicando a animação */
+    transition: 0.5s;
+}
+
+.objeto-a-flutuar:hover {
+    animation: none; /* Para parar a animação ao passar o mouse */
+    transform: translateY(-8px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); /* Efeito de sombra apenas na parte inferior com brilho neon */
+}
+
+/* Efeito de desfoque nos links não hoverados */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    text-align: center;
+    font-family: 'Poppins', sans-serif; /* Aplicando a fonte Poppins */
+    transition: filter 0.3s ease; /* Transição suave para o efeito de desfoque */
+}
+
+/* Definindo a animação de flutuação */
+@keyframes float {
+    0% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        transform: translateY(0px);
+    }
+    50% {
+        box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+        transform: translateY(-20px);
+    }
+    100% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        transform: translateY(0px);
+    }
+}
+
+/* Efeito de desfoque nos links não hoverados */
+.navbar a.blur {
+    filter: blur(2px); /* Aplica o desfoque aos links não hoverados */
+}
+
+/* Remove o desfoque quando o mouse está sobre um link */
+.navbar a:hover {
+    filter: none; /* Remove o desfoque do link hoverado */
+}
