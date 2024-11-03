@@ -1,0 +1,12 @@
+/* Remove as margens e o preenchimento do body */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Remove as barras de rolagem */
+}
+
+/* Faz o contêiner ocupar toda a tela */
+#three-container {
+    width: 100vw; /* Largura total da janela */
+    height: 100vh; /* Altura total da janela */
+}
