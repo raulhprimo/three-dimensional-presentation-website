@@ -23,25 +23,23 @@ scene.add(sphere);
 // Posiciona a câmera
 camera.position.z = 5;
 
-// Conjunto de cores que vai de claro a escuro
-const colors = [
-    0xB3E5FC, // Azul claro
-    0x81D4FA, // Azul
-    0x4FC3F7, // Azul médio
-    0x29B6F6, // Azul mais escuro
-    0x039BE5, // Azul escuro
-    0x0288D1, // Azul profundo
-    0x0277BD, // Azul muito escuro
-    0x01579B  // Azul quase preto
+// Conjuntos de cores que vão de claro a escuro
+const palettes = [
+    [0xB3E5FC, 0x81D4FA, 0x4FC3F7, 0x29B6F6, 0x039BE5, 0x0288D1, 0x0277BD, 0x01579B], // Paleta 1
+    [0xFFCCBC, 0xFFAB91, 0xFF8A65, 0xFF7043, 0xFF5722, 0xF4511E, 0xE64A19, 0xD84315], // Paleta 2
+    [0xC8E6C9, 0xA5D6A7, 0x81C784, 0x66BB6A, 0x4CAF50, 0x43A047, 0x388E3C, 0x2E7D32], // Paleta 3
+    [0xD1C4E9, 0xB39DDB, 0x9575CD, 0x7E57C2, 0x673AB7, 0x5E35B1, 0x512DA8, 0x4527A0]  // Paleta 4
 ];
 
+const selectedPalette = palettes[Math.floor(Math.random() * palettes.length)]; // Seleciona uma paleta aleatória
 let currentColorIndex = 0; // Índice da cor atual
-const colorChangeInterval = 3500; // Tempo em milissegundos para mudar a cor
+const rotationTime = 100; // Tempo em milissegundos para uma rotação completa (ajuste conforme necessário)
+const colorChangeInterval = rotationTime * 67 - 3; // Tempo em milissegundos para mudar a cor
 
 // Função para mudar a cor da esfera
 function changeColor() {
-    sphere.material.color.set(colors[currentColorIndex]);
-    currentColorIndex = (currentColorIndex + 1) % colors.length; // Atualiza o índice da cor
+    sphere.material.color.set(selectedPalette[currentColorIndex]);
+    currentColorIndex = (currentColorIndex + 1) % selectedPalette.length; // Atualiza o índice da cor
 }
 
 // Muda a cor pela primeira vez
