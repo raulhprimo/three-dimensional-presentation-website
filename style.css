@@ -1,83 +1,207 @@
-/* Remove as margens e o preenchimento do body */
+:root {
+    --primary-color: #ff0033;
+    --text-color: #000;
+    --bg-color: var(--primary-color);
+    --modern-white: #F5F5F5;    /* Um branco suave */
+    --modern-black: #1A1A1A;    /* Um preto suave */
+}
+
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Remove as barras de rolagem */
+    background-color: var(--modern-black);
+    font-family: 'Inter', sans-serif;
+    color: var(--modern-white);
+    overflow: hidden;
 }
 
-/* Faz o contêiner ocupar toda a tela */
-#three-container {
-    width: 100vw; /* Largura total da janela */
-    height: 100vh; /* Altura total da janela */
-}
-
-/* Estilo da navbar */
-.navbar {
-    position: fixed; /* Muda para fixed para que fique sempre visível */
-    bottom: 0;
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    padding: 1.5rem;
+    position: fixed;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    z-index: 10; /* Garante que a navbar fique acima do conteúdo */
+    box-sizing: border-box;
+    z-index: 100;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.2);
 }
 
-.navbar ul {
-    list-style-type: none;
+.logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    padding-right: 2rem;
+    border-right: 1px solid rgba(245, 245, 245, 0.2);
+    color: var(--modern-white);
+}
+
+.status {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    padding-left: 2rem;
+    line-height: 1.4;
+    color: var(--modern-white);
+}
+
+nav {
+    border-left: 1px solid rgba(245, 245, 245, 0.2);
+    border-right: 1px solid rgba(245, 245, 245, 0.2);
+    padding: 0 2rem;
+    margin: 0 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
-.navbar li {
-    margin: 0 15px;
-}
-
-/* Efeito de flutuação */
-.objeto-a-flutuar {
-    animation: float 5.1s ease-in-out infinite; /* Aplicando a animação */
-    transition: 0.5s;
-}
-
-.objeto-a-flutuar:hover {
-    animation: none; /* Para parar a animação ao passar o mouse */
-    transform: translateY(-8px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); /* Efeito de sombra apenas na parte inferior com brilho neon */
-}
-
-/* Efeito de desfoque nos links não hoverados */
-.navbar a {
+nav a {
+    color: var(--modern-white);
     text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    display: block;
-    text-align: center;
-    font-family: 'Poppins', sans-serif; /* Aplicando a fonte Poppins */
-    transition: filter 0.3s ease; /* Transição suave para o efeito de desfoque */
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
 }
 
-/* Definindo a animação de flutuação */
-@keyframes float {
-    0% {
-        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-        transform: translateY(0px);
+.right-menu {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+    padding-left: 1rem;
+}
+
+.right-menu a {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(245, 245, 245, 0.2);
+    text-decoration: none;
+    color: var(--modern-white);
+}
+
+.wave-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 20px;
+}
+
+.title-wrapper h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 8vw, 8rem);
+    white-space: nowrap;
+    margin: 0;
+    color: var(--modern-white);
+}
+
+.title-wrapper .star {
+    font-size: clamp(1.5rem, 6vw, 6rem);
+    color: var(--modern-white);
+}
+
+.binary-line {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 0.7rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(245, 245, 245, 0.2);
+    border-bottom: 1px solid rgba(245, 245, 245, 0.2);
+}
+
+.binary-line.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.separator {
+    margin: 0 1rem;
+    opacity: 0.5;
+    color: var(--modern-white);
+}
+
+.corner-text {
+    position: fixed;
+    right: 0;
+    top: 0;
+    text-align: right;
+    font-size: 0.8rem;
+    padding: 1.5rem;
+    border-left: 1px solid rgba(245, 245, 245, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+/* Adicionar hover effects */
+nav a:hover,
+.right-menu a:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+/* Ajuste para o layout responsivo */
+@media (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
-    50% {
-        box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-        transform: translateY(-20px);
+
+    nav {
+        border: none;
+        padding: 1rem 0;
+        margin: 0;
     }
-    100% {
-        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-        transform: translateY(0px);
+
+    .corner-text {
+        display: none;
     }
 }
 
-/* Efeito de desfoque nos links não hoverados */
-.navbar a.blur {
-    filter: blur(2px); /* Aplica o desfoque aos links não hoverados */
-}
-
-/* Remove o desfoque quando o mouse está sobre um link */
-.navbar a:hover {
-    filter: none; /* Remove o desfoque do link hoverado */
+@media (max-width: 480px) {
+    .title-wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }

@@ -1,23 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Creative Developer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Fonte Archivo Black para o texto principal -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <!-- Fonte Inter para textos secundários -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="three-container"></div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home" class="objeto-a-flutuar">Home</a></li>
-            <li><a href="#about" class="objeto-a-flutuar">About</a></li>
-            <li><a href="#services" class="objeto-a-flutuar">Services</a></li>
-            <li><a href="#contact" class="objeto-a-flutuar">Contact</a></li>
-        </ul>
-    </nav>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js" defer></script>
+    <header>
+        <div class="logo">IIII</div>
+        <div class="status">
+            <div class="loading">RAUL</div>
+            <div class="counter">PRIMO</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#work">WORK</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wave-container">
+        <canvas id="waveCanvas"></canvas>
+    </div>
+
+    <main>
+        <div class="binary-line">
+            <span>101111100101101010111</span>
+            <span class="separator">/////////////////</span>
+            <span>100110011101</span>
+            <!-- Repetir conforme necessário -->
+        </div>
+        
+        <div class="title-container">
+            <div class="title-wrapper">
+                <h1>SAAS</h1>
+                <span class="star">★</span>
+                <h1>DEVELOPER</h1>
+            </div>
+        </div>
+
+        <div class="binary-line bottom">
+            <span>100100000001000</span>
+            <span class="separator">/////////////////</span>
+            <span>001010101101001111101011001</span>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
